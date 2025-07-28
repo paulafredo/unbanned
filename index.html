@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 UNBANNED UID FREE FIRE - Vérification de compte</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      min-height: 100vh;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+      z-index: -1;
+      animation: backgroundPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundPulse {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.7; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      box-shadow: 0 8px 32px rgba(255, 107, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(45deg, #ff6b00, #ff4500, #ffa500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      text-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.5)); }
+      to { filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.8)); }
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin-top: 10px;
+    }
+
+    /* Search Section */
+    .search-section {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-container {
+      display: flex;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    #uid {
+      flex: 1;
+      min-width: 250px;
+      padding: 18px 25px;
+      font-size: 1.1rem;
+      border: 2px solid rgba(255, 107, 0, 0.3);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    #uid::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    #uid:focus {
+      border-color: #ff6b00;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .search-btn {
+      padding: 18px 35px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff6b00, #ff4500);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .search-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .search-btn:hover::before {
+      left: 100%;
+    }
+
+    .search-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(255, 107, 0, 0.5);
+    }
+
+    .search-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Loading Animation */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255, 107, 0, 0.3);
+      border-top: 4px solid #ff6b00;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Result Section */
+    #result {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 0;
+      margin-bottom: 30px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: none;
+    }
+
+    .profile-header {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 69, 0, 0.1));
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+    }
+
+    .avatar-container {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #ff6b00;
+      box-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+      position: relative;
+    }
+
+    .avatar-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b00, #ff4500, #ffa500, #ff6b00);
+      border-radius: 50%;
+      z-index: -1;
+      animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .player-name {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .player-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+      border-color: rgba(255, 107, 0, 0.5);
+    }
+
+    .info-label {
+      font-size: 0.9rem;
+      color: #cccccc;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Ban Status */
+    .ban-status {
+      text-align: center;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 15px;
+      border: 2px solid;
+    }
+
+    .ban-status.banned {
+      background: rgba(220, 53, 69, 0.1);
+      border-color: #dc3545;
+      color: #ff6b6b;
+    }
+
+    .ban-status.safe {
+      background: rgba(40, 167, 69, 0.1);
+      border-color: #28a745;
+      color: #4caf50;
+    }
+
+    .ban-icon {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .ban-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .contact-btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #dc3545, #c82333);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
+    }
+
+    /* Debug Section */
+    #profile-display {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(0, 255, 0, 0.3);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #profile-display h3 {
+      color: #ff6b00;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    #profile-display img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 107, 0, 0.5);
+      box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+    }
+
+    .profile-loading {
+      color: #cccccc;
+      font-style: italic;
+    }
+
+    /* Error Message */
+    .error-message {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid #dc3545;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+      color: #ff6b6b;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      .search-container {
+        flex-direction: column;
+      }
+
+      .player-info {
+        grid-template-columns: 1fr;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .search-section {
+        padding: 25px;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-up {
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header fade-in">
+      <h1>🔥 UNBANNED UID FREE FIRE 🔥</h1>
+      <p>Vérifiez le statut de votre compte Free Fire instantanément</p>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section fade-in">
+      <div class="search-container">
+        <input type="text" id="uid" placeholder="Entrez votre UID Free Fire..." />
+        <button class="search-btn" onclick="getUserInfo()">
+          🔍 Rechercher
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Récupération des données en cours...</p>
+    </div>
+
+    <!-- Results -->
+    <div id="result"></div>
+
+    <!-- Profile Display -->
+    <div id="profile-display"></div>
+  </div>
+
+<script>
+function showProfile(uid) {
+  const profileDisplay = document.getElementById('profile-display');
+  profileDisplay.innerHTML = `
+    <h3>🎮 Profil Free Fire</h3>
+    <div class="profile-loading">Génération du profil en cours...</div>
+  `;
+  
+  const profileUrl = `https://genprofile.vercel.app/generate?uid=${uid}`;
+  profileDisplay.innerHTML = `
+    <h3>🎮 Profil Free Fire</h3>
+    <img src="${profileUrl}" alt="Profil Free Fire" onload="this.style.opacity=1" style="opacity:0; transition: opacity 0.5s;" onerror="this.parentElement.innerHTML='<p style=color:#ff6b6b>❌ Impossible de charger le profil</p>'" />
+  `;
+}
+
+function formatDate(timestamp) {
+  const d = new Date(parseInt(timestamp) * 1000);
+  return d.toLocaleDateString("fr-FR", {
+    day: '2-digit',
+    month: '2-digit', 
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+function showLoading(show) {
+  const loading = document.getElementById('loading');
+  const result = document.getElementById('result');
+  
+  if (show) {
+    loading.style.display = 'block';
+    result.style.display = 'none';
+  } else {
+    loading.style.display = 'none';
+  }
+}
+
+function showError(message) {
+  const result = document.getElementById('result');
+  result.innerHTML = `
+    <div class="error-message fade-in">
+      <h3>❌ Erreur</h3>
+      <p>${message}</p>
+    </div>
+  `;
+  result.style.display = 'block';
+}
+
+async function getUserInfo() {
+  const uid = document.getElementById('uid').value.trim();
+  if (!uid) {
+    showError("Veuillez entrer un UID valide");
+    return;
+  }
+
+  showLoading(true);
+  document.getElementById('profile-display').innerHTML = "";
+
+  try {
+    // 📡 1. Récupérer info de base
+    const infoUrl = `https://corsproxy.io/?https://glob-info.vercel.app/info?uid=${uid}`;
+    
+    const infoRes = await fetch(infoUrl);
+    if (!infoRes.ok) throw new Error('UID non trouvé');
+    
+    const infoData = await infoRes.json();
+
+    const basic = infoData.basicInfo;
+    const social = infoData.socialInfo;
+    const nickname = basic.nickname;
+    const level = basic.level;
+    const createAt = formatDate(basic.createAt);
+    const lastLoginAt = formatDate(basic.lastLoginAt);
+    const headPic = basic.headPic;
+    const liked = basic.liked;
+    const region = basic.region;
+
+    // 📸 2. Image Avatar
+    const avatarUrl = `https://genitems.vercel.app/openitems?id=${headPic}`;
+
+    // 📡 3. Vérifier ban
+    const banUrl = `https://corsproxy.io/?https://api-check-ban.vercel.app/check_ban/${uid}`;
+    
+    const banRes = await fetch(banUrl);
+    if (!banRes.ok) throw new Error('Erreur lors de la vérification du ban');
+    
+    const banData = await banRes.json();
+
+    const isBanned = banData.data.is_banned;
+    const banPeriod = banData.data.period;
+
+    // 📝 4. Affichage
+    showLoading(false);
+    
+    // Afficher le profil Free Fire
+    showProfile(uid);
+    
+    const banStatusHtml = isBanned === 1 ? `
+      <div class="ban-status banned slide-up">
+        <span class="ban-icon">🚫</span>
+        <div class="ban-text">COMPTE BANNI</div>
+        <p>Ce compte est actuellement suspendu</p>
+        ${banPeriod > 0 ? `<p>Période: ${banPeriod} jours</p>` : ''}
+        <button class="contact-btn" onclick="alert('Contactez l\\'administrateur pour débannir ce compte\\n\\nTelegram: @admin_freefire\\nDiscord: admin#1234')">
+          📞 Contacter l'Admin
+        </button>
+      </div>
+    ` : `
+      <div class="ban-status safe slide-up">
+        <span class="ban-icon">✅</span>
+        <div class="ban-text">COMPTE SÉCURISÉ</div>
+        <p>Ce compte n'est pas banni et peut jouer normalement</p>
+      </div>
+    `;
+
+    const html = `
+      <div class="profile-header slide-up">
+        <div class="avatar-container">
+          <img src="${avatarUrl}" alt="Avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjMzMzIiByeD0iNjAiLz4KPHN2ZyB4PSIzMCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjNjY2Ij4KPHA+VXNlcjwvcD4KPC9zdmc+Cjwvc3ZnPg=='" />
+        </div>
+        <div class="player-name">${nickname}</div>
+        <p style="color: #cccccc;">UID: ${uid}</p>
+      </div>
+
+      <div class="player-info">
+        <div class="info-card">
+          <div class="info-label">⭐ Niveau</div>
+          <div class="info-value">${level}</div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-label">✍️ Signature</div>
+          <div class="info-value">${social?.signature || 'Aucune signature'}</div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-label">❤️ Likes</div>
+          <div class="info-value">${liked.toLocaleString()}</div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-label">🌍 Région</div>
+          <div class="info-value">${region}</div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-label">📅 Compte créé</div>
+          <div class="info-value">${createAt}</div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-label">⏰ Dernière connexion</div>
+          <div class="info-value">${lastLoginAt}</div>
+        </div>
+      </div>
+
+      ${banStatusHtml}
+    `;
+
+    const result = document.getElementById('result');
+    result.innerHTML = html;
+    result.style.display = 'block';
+    result.classList.add('fade-in');
+
+  } catch (e) {
+    showLoading(false);
+    showError(`Erreur lors de la récupération des données: ${e.message}`);
+  }
+}
+
+// Allow Enter key to trigger search
+document.getElementById('uid').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    getUserInfo();
+  }
+});
+</script>
+</body>
+</html>
