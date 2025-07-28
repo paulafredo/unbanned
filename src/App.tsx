@@ -222,7 +222,7 @@ function App() {
                         <h4 className="text-2xl font-bold text-red-400 mb-2">🚫 COMPTE BANNI</h4>
                         <p className="text-gray-300">Votre compte est actuellement banni</p>
                         {playerData.banInfo.period > 0 && (
-                           <p className="text-sm text-gray-400 mt-2">Période: {playerData.banInfo.period} Mois</p>
+                          // <p className="text-sm text-gray-400 mt-2">Période: {playerData.banInfo.period} jours</p>
                         )}
                       </div>
                       
