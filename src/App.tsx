@@ -97,7 +97,8 @@ function App() {
       <div className="bg-black/30 backdrop-blur-sm border-b border-orange-500/20">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-            🔥 UNBANNED UID FREE FIRE 🔥
+            🔥 UNBANNED UID FREE FIRE [BY THUG] 🔥
+         
           </h1>
           <p className="text-center text-gray-300 mt-2">Vérifiez le statut de votre compte Free Fire</p>
         </div>
@@ -255,7 +256,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-black/50 backdrop-blur-sm border-t border-orange-500/20 mt-16">
         <div className="container mx-auto px-4 py-6 text-center text-gray-400">
-          <p>&copy; 2025 UNBANNED UID FREE FIRE - Vérification de statut de compte</p>
+          <p>&copy; 2025 UNBANNED UID BY THUG</p>
         </div>
       </footer>
     </div>
